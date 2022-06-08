@@ -4,24 +4,26 @@ import ContextApi from "../../Context/ContextApi";
 //
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-import SideBar from "../../components/sideBar";
-import MainContent from "./mainContent";
 //
+import "./style/style.css";
 
-const Home = () => {
+const Profile = () => {
   const { trueOrFalse } = useContext(ContextApi);
   console.log(trueOrFalse);
   return (
-    <div className="container">
+    <div className="container-profile">
       <Header />
 
-      <SideBar />
-
-      <MainContent />
+      <div className="argos">
+        <p>
+          Acá es donde vas a configurar tu cuenta, como tu personaje principal y
+          tu{`(s)`} alters.
+        </p>
+      </div>
 
       <Footer />
     </div>
   );
 };
 
-export default Home;
+export default Profile;

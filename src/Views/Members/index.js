@@ -5,10 +5,10 @@ import ContextApi from "../../Context/ContextApi";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import SideBar from "../../components/sideBar";
-import MainContent from "./mainContent";
 //
+import "./style/style.css";
 
-const Home = () => {
+const Members = () => {
   const { trueOrFalse } = useContext(ContextApi);
   console.log(trueOrFalse);
   return (
@@ -17,11 +17,15 @@ const Home = () => {
 
       <SideBar />
 
-      <MainContent />
+      <div className="members">
+        <p>
+          Acá va a ir la lista de miembros del gremio, y sus respectivos alters
+        </p>
+      </div>
 
       <Footer />
     </div>
   );
 };
 
-export default Home;
+export default Members;

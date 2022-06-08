@@ -23,7 +23,7 @@ body {
 
 .footer {
   grid-area: footer;
-  background-color: darkblue;
+  background-color: black;
   color: white;
 }
 
