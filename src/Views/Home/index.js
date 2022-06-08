@@ -1,32 +1,26 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 //
-import PokemonContext from "../../Context/Pokemons";
+import ContextApi from "../../Context/ContextApi";
 //
-import PokemonList from "./Components/PokemonList";
-//
-import Loading from "../../components/Loading";
-import ErrorMessage from "../../components/ErrorMessage";
+import Header from "../../components/header";
 //
 
 const Home = () => {
-  const { getPokemons, pokemons, isLoading, hasError, errorMessage } =
-    useContext(PokemonContext);
-
-  useEffect(() => {
-    getPokemons().catch(null);
-    //Aquí como getPokemons es asyncrono, le coloco el catch(null) para evitar problemas
-  }, []);
-  if (isLoading) {
-    return <Loading title={"Cargando pokemon o que ase..."} />;
-  }
+  const { trueOrFalse } = useContext(ContextApi);
+  console.log(trueOrFalse);
   return (
-    <>
-      {hasError ? (
-        <ErrorMessage message={errorMessage} />
-      ) : (
-        <PokemonList pokemons={pokemons} />
-      )}
-    </>
+    <div className="container">
+      <Header />
+      <div className="side-bar">
+        <p>Acá va la barra lateral</p>
+      </div>
+      <div className="main-content">
+        <p>Acá va el main content</p>
+      </div>
+      <div className="footer">
+        <p>Acá va el footer</p>
+      </div>
+    </div>
   );
 };
 

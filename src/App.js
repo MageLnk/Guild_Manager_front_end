@@ -1,5 +1,5 @@
 //
-import PokemonProvider from "./Context/Pokemons/Provider";
+import ContextApi from "./Context/ContextApi/Provider";
 import Routes from "./Routes";
 //
 
@@ -7,9 +7,9 @@ import Routes from "./Routes";
 
 const App = () => {
   return (
-    <PokemonProvider>
+    <ContextApi>
       <Routes />
-    </PokemonProvider>
+    </ContextApi>
   );
 };
 
