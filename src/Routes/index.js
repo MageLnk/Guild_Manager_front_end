@@ -6,10 +6,12 @@ import Vykas from "../Views/vykas";
 import Valtan from "../Views/valtan";
 import Members from "../Views/members";
 import Profile from "../Views/profile";
-import Contribution from "../Views/contribution";
+import Brelshaza from "../Views/brelshaza";
 import KakulSaydon from "../Views/kakulSaydon";
+import Contribution from "../Views/contribution";
 
 import FourOFour from "../Views/404";
+import Managment from "../Views/managment";
 //
 
 const Routes = () => {
@@ -34,11 +36,17 @@ const Routes = () => {
         <Route exact path="/profile">
           <Profile />
         </Route>
-        <Route exact path="/contribution">
-          <Contribution />
+        <Route exact path="/brelshaza">
+          <Brelshaza />
+        </Route>
+        <Route exact path="/managment">
+          <Managment />
         </Route>
         <Route exact path="/kakul-saydon">
           <KakulSaydon />
+        </Route>
+        <Route exact path="/contribution">
+          <Contribution />
         </Route>
         <Route>
           <FourOFour />

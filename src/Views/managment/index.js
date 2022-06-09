@@ -4,19 +4,24 @@ import ContextApi from "../../Context/ContextApi";
 //
 import Header from "../../components/header";
 import Footer from "../../components/footer";
+import SideBar from "../../components/sideBar";
 //
 import "./style/style.css";
 
-const FourOFour = () => {
+const Managment = () => {
   const { trueOrFalse } = useContext(ContextApi);
   console.log(trueOrFalse);
   return (
-    <div className="container-profile">
+    <div className="container">
       <Header />
 
-      <div className="four-o-four">
-        <h1>ERROR 404</h1>
-        <p>:{`(`}</p>
+      <SideBar />
+
+      <div className="managment">
+        <p>
+          Todo el manejo de la guild. Sacar miembros, aceptar miembros, agregar
+          alters, configurar su contribución, etc etc
+        </p>
       </div>
 
       <Footer />
@@ -24,4 +29,4 @@ const FourOFour = () => {
   );
 };
 
-export default FourOFour;
+export default Managment;
