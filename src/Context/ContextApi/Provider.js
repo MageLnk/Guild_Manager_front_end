@@ -5,6 +5,7 @@ import ContextApi from ".";
 //
 
 const PokemonProvider = ({ children }) => {
+  const [login, setLogin] = useState(false);
   const [trueOrFalse, setTrueOrFalse] = useState(true);
 
   return (
@@ -12,6 +13,8 @@ const PokemonProvider = ({ children }) => {
       value={{
         trueOrFalse,
         setTrueOrFalse,
+        login,
+        setLogin,
       }}
     >
       {children}

@@ -2,16 +2,17 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //
 import Home from "../Views/home";
 import Argos from "../Views/argos";
+import Login from "../Views/login";
 import Vykas from "../Views/vykas";
 import Valtan from "../Views/valtan";
 import Members from "../Views/members";
 import Profile from "../Views/profile";
 import Brelshaza from "../Views/brelshaza";
+import Managment from "../Views/managment";
 import KakulSaydon from "../Views/kakulSaydon";
 import Contribution from "../Views/contribution";
 
 import FourOFour from "../Views/404";
-import Managment from "../Views/managment";
 //
 
 const Routes = () => {
@@ -23,6 +24,9 @@ const Routes = () => {
         </Route>
         <Route exact path="/argos">
           <Argos />
+        </Route>
+        <Route exact path="/login">
+          <Login />
         </Route>
         <Route exact path="/vykas">
           <Vykas />
@@ -57,21 +61,3 @@ const Routes = () => {
 };
 
 export default Routes;
-
-/*
-
-    <Router>
-      <ScrollToTop />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/pokemon/:id">
-          <PokeDetail />
-        </Route>
-        <Route>
-          <FourOFour />
-        </Route>
-      </Switch>
-    </Router>
-*/
