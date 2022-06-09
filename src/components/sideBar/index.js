@@ -11,6 +11,11 @@ const SideBar = () => {
         </Link>
       </p>
       <p>
+        <Link className="hyper-link-decoration" to={`/contribution`}>
+          Contribución
+        </Link>
+      </p>
+      <p>
         <Link className="hyper-link-decoration" to={`/members`}>
           Miembros
         </Link>
@@ -20,11 +25,31 @@ const SideBar = () => {
           Argos
         </Link>
       </p>
-      <p>Valtan</p>
-      <p>Vykas</p>
-      <p>Kakul Saydon</p>
-      <p>Brelshaza</p>
-      <p>Managment</p>
+      <p>
+        <Link className="hyper-link-decoration" to={`/valtan`}>
+          Valtan
+        </Link>
+      </p>
+      <p>
+        <Link className="hyper-link-decoration" to={`/vykas`}>
+          Vykas
+        </Link>
+      </p>
+      <p>
+        <Link className="hyper-link-decoration" to={`/kakul-saydon`}>
+          Kakul Saydon
+        </Link>
+      </p>
+      <p>
+        <Link className="hyper-link-decoration" to={`/brelshaza`}>
+          Brelshaza
+        </Link>
+      </p>
+      <p>
+        <Link className="hyper-link-decoration" to={`/managment`}>
+          Managment
+        </Link>
+      </p>
     </div>
   );
 };

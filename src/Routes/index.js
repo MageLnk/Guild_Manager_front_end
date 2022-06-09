@@ -1,9 +1,13 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //
-import Home from "../Views/Home";
-import Argos from "../Views/Argos";
-import Members from "../Views/Members";
+import Home from "../Views/home";
+import Argos from "../Views/argos";
+import Vykas from "../Views/vykas";
+import Valtan from "../Views/valtan";
+import Members from "../Views/members";
 import Profile from "../Views/profile";
+import Contribution from "../Views/contribution";
+import KakulSaydon from "../Views/kakulSaydon";
 
 import FourOFour from "../Views/404";
 //
@@ -18,11 +22,23 @@ const Routes = () => {
         <Route exact path="/argos">
           <Argos />
         </Route>
+        <Route exact path="/vykas">
+          <Vykas />
+        </Route>
+        <Route exact path="/valtan">
+          <Valtan />
+        </Route>
         <Route exact path="/members">
           <Members />
         </Route>
         <Route exact path="/profile">
           <Profile />
+        </Route>
+        <Route exact path="/contribution">
+          <Contribution />
+        </Route>
+        <Route exact path="/kakul-saydon">
+          <KakulSaydon />
         </Route>
         <Route>
           <FourOFour />
