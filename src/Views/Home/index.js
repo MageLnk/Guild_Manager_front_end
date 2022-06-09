@@ -12,7 +12,6 @@ import MainContent from "./mainContent";
 
 const Home = () => {
   const { login } = useContext(ContextApi);
-  console.log(login, "Home");
   if (login === false) {
     return <Login />;
   } else {
