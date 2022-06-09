@@ -4,8 +4,17 @@
   align-items: center;
   justify-content: space-between;
 }
+.header .no-clase {
+  height: 100%;
+}
 
 .header .header-logo {
   height: 100%;
-  width: 15%;
+  width: 100%;
+}
+
+.header .header-buttons {
+  display: flex;
+  flex-direction: row;
+  padding-right: 1rem;
 }
