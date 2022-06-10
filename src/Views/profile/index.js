@@ -8,8 +8,8 @@ import Footer from "../../components/footer";
 import "./style/style.css";
 
 const Profile = () => {
-  const { trueOrFalse } = useContext(ContextApi);
-  console.log(trueOrFalse);
+  //  const { trueOrFalse } = useContext(ContextApi);
+  //  console.log(trueOrFalse);
   return (
     <div className="container-profile">
       <Header />

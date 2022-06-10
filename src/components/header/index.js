@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+//
+import ContextApi from "../../Context/ContextApi";
 //
 import guildLogo from "../../assets/img/BW_logo.jpg";
 import "./style/style.css";
 
 const Header = () => {
+  const { setLogin } = useContext(ContextApi);
   return (
     <div className="header">
       <div className="no-clase">
@@ -16,7 +20,13 @@ const Header = () => {
         <button>
           <Link to="/profile">Profile</Link>
         </button>
-        <button>Cerrar sesión</button>
+        <button
+          onClick={(e) => {
+            setLogin(false);
+          }}
+        >
+          Cerrar sesión
+        </button>
       </div>
     </div>
   );

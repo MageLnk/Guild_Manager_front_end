@@ -1,18 +1,37 @@
 import { useState } from "react";
 import ContextApi from ".";
 //
-//import apiCall from "../../Api";
+import apiCall from "../../Api";
 //
 
-const PokemonProvider = ({ children }) => {
+const ContextProvider = ({ children }) => {
   const [login, setLogin] = useState(false);
-  const [trueOrFalse, setTrueOrFalse] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  //API CALL
+
+  const getLogin = async () => {
+    try {
+      setHasError(false);
+      setErrorMessage("");
+      const successLogin = await apiCall({ url: `http://localhost:5000` });
+      setLogin(successLogin);
+    } catch (error) {
+      setLogin(false);
+      setHasError(true);
+      setErrorMessage("Algo a pasado");
+    } finally {
+      console.log("Lo dejé por estructura, ya veré si lo dejo o no");
+    }
+  };
+
+  //END API CALL
 
   return (
     <ContextApi.Provider
       value={{
-        trueOrFalse,
-        setTrueOrFalse,
+        getLogin,
         login,
         setLogin,
       }}
@@ -22,7 +41,7 @@ const PokemonProvider = ({ children }) => {
   );
 };
 
-export default PokemonProvider;
+export default ContextProvider;
 
 /*
 const getPokemonDetail = async (id) => {

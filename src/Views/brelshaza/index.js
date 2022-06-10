@@ -9,8 +9,8 @@ import SideBar from "../../components/sideBar";
 import "./style/style.css";
 
 const Brelshaza = () => {
-  const { trueOrFalse } = useContext(ContextApi);
-  console.log(trueOrFalse);
+  //  const { trueOrFalse } = useContext(ContextApi);
+  //  console.log(trueOrFalse);
   return (
     <div className="container">
       <Header />

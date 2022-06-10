@@ -9,8 +9,9 @@ import "./style/style.css";
 const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const { setLogin } = useContext(ContextApi);
-  console.log(password);
+  const { getLogin } = useContext(ContextApi);
+
+  console.log("Ola k ase, login o k ase");
   return (
     <div className="container-login">
       <div>
@@ -39,7 +40,7 @@ const Login = () => {
               e.preventDefault();
               setUser("");
               setPassword("");
-              setLogin(true);
+              getLogin();
             }}
           >
             Enviar
