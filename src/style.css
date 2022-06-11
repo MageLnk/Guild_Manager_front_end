@@ -34,7 +34,7 @@ body {
   grid-template-areas:
     "header header"
     "side-bar main-content"
-    "side-bar footer";
+    "footer footer";
   grid-template-rows: 7% 87% 6%;
   grid-template-columns: 15% 85%;
 }
