@@ -18,6 +18,7 @@ const ContextProvider = ({ children }) => {
       const successLogin = await apiCall({
         url: `http://localhost:5000/admin/login`,
       });
+      console.log(successLogin.loggedIn);
       setLogin(successLogin);
     } catch (error) {
       setLogin(false);
