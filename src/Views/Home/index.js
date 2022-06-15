@@ -12,6 +12,7 @@ import MainContent from "./mainContent";
 
 const Home = () => {
   const { login } = useContext(ContextApi);
+  //console.log("Checkin algo", login);
   if (login === false) {
     return <Login />;
   } else {

@@ -18,14 +18,15 @@ const ContextProvider = ({ children }) => {
       const successLogin = await apiCall({
         url: `http://localhost:5000/admin/login`,
       });
-      console.log(successLogin.loggedIn);
-      setLogin(successLogin);
+      //console.log(successLogin.loggedIn);
+      setLogin(successLogin.loggedIn);
+      //Por qué cuando pasa a ser un objeto, valida igual el login?
     } catch (error) {
       setLogin(false);
       setHasError(true);
       setErrorMessage("Algo a pasado");
     } finally {
-      console.log("Lo dejé por estructura, ya veré si lo dejo o no");
+      //console.log("Lo dejé por estructura, ya veré si lo dejo o no");
     }
   };
 

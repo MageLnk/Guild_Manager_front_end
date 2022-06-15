@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { getLogin } = useContext(ContextApi);
 
-  console.log("Ola k ase, login o k ase");
+  //console.log("Ola k ase, login o k ase");
   return (
     <div className="container-login">
       <div>
