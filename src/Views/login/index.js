@@ -1,17 +1,22 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //
-import ContextApi from "../../Context/ContextApi";
+//import ContextApi from "../../Context/ContextApi";
 //
 
 //
 import "./style/style.css";
 
-const Login = () => {
+const Login = ({ authenticate }) => {
+  // Variables login
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const { getLogin } = useContext(ContextApi);
-
-  //console.log("Ola k ase, login o k ase");
+  // Login logic
+  const navigate = useNavigate();
+  const handlerLogin = () => {
+    authenticate();
+    navigate("");
+  };
   return (
     <div className="container-login">
       <div>
@@ -38,9 +43,7 @@ const Login = () => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              setUser("");
-              setPassword("");
-              getLogin();
+              handlerLogin();
             }}
           >
             Enviar

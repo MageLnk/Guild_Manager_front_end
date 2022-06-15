@@ -1,13 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//
+import { BrowserRouter } from "react-router-dom";
+// Provider
+import ContextApi from "./Context/ContextApi/Provider";
+// Components
 import App from "./App";
-//
-import "./style.css";
+// Styles
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ContextApi>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ContextApi>
   </React.StrictMode>,
   document.getElementById("root")
 );

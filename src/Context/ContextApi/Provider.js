@@ -5,7 +5,7 @@ import apiCall from "../../Api";
 //
 
 const ContextProvider = ({ children }) => {
-  const [login, setLogin] = useState(false);
+  const [auth, setAuth] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -19,10 +19,10 @@ const ContextProvider = ({ children }) => {
         url: `http://localhost:5000/admin/login`,
       });
       //console.log(successLogin.loggedIn);
-      setLogin(successLogin.loggedIn);
+      setAuth(successLogin.loggedIn);
       //Por qué cuando pasa a ser un objeto, valida igual el login?
     } catch (error) {
-      setLogin(false);
+      setAuth(false);
       setHasError(true);
       setErrorMessage("Algo a pasado");
     } finally {
@@ -35,9 +35,9 @@ const ContextProvider = ({ children }) => {
   return (
     <ContextApi.Provider
       value={{
+        auth,
+        setAuth,
         getLogin,
-        login,
-        setLogin,
       }}
     >
       {children}

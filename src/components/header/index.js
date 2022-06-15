@@ -7,7 +7,7 @@ import guildLogo from "../../assets/img/BW_logo.jpg";
 import "./style/style.css";
 
 const Header = () => {
-  const { setLogin } = useContext(ContextApi);
+  const { setAuth } = useContext(ContextApi);
   return (
     <div className="header">
       <div className="no-clase">
@@ -22,7 +22,8 @@ const Header = () => {
         </button>
         <button
           onClick={(e) => {
-            setLogin(false);
+            setAuth(false);
+            localStorage.clear();
           }}
         >
           Cerrar sesión
