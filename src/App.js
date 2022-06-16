@@ -16,9 +16,13 @@ import Managment from "./Views/managment";
 import KakulSaydon from "./Views/kakulSaydon";
 import Contribution from "./Views/contribution";
 
+import FourOFour from "./Views/404";
+
+// App
 const App = () => {
   const { auth, setAuth } = useContext(ContextApi);
 
+  // Auth login
   useEffect(() => {
     const isLogginOk = localStorage.getItem("authenticate");
     isLogginOk && JSON.parse(isLogginOk) ? setAuth(true) : setAuth(false);
@@ -27,6 +31,7 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("authenticate", auth);
   }, [auth]);
+
   return (
     <Routes>
       {!auth && (
@@ -44,7 +49,14 @@ const App = () => {
       {auth && (
         <>
           <Route path="/" element={<Home />} />
+          <Route path="/argos" element={<Argos />} />
+          <Route path="/vykas" element={<Vykas />} />
+          <Route path="/valtan" element={<Valtan />} />
+          <Route path="/members" element={<Members />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/brelshaza" element={<Brelshaza />} />
+          <Route path="/managment" element={<Managment />} />
+          <Route path="/kakul-saydon" element={<KakulSaydon />} />
           <Route path="/contribution" element={<Contribution />} />
         </>
       )}
