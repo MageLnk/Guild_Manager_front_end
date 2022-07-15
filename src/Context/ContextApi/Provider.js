@@ -8,20 +8,21 @@ const ContextProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [selectedGameOnSideBar, setselectedGameOnSideBar] = useState("initialState");
 
   // Temporal
   const [temporaryUser, settemporaryUser] = useState({
     userName: "MageLink",
     password: "1234",
-    games: {
-      aion: false,
-      blackDesert: true,
-      finalFantasyXIV: false,
-      lostArk: true,
-      worldOfWarcraft: true,
-    },
+    games: [
+      { name: "Aion", status: false },
+      { name: "Black Desert", status: true },
+      { name: "Final Fantasy XIV", status: false },
+      { name: "Lost Ark", status: true },
+      { name: "World of Warcraft", status: true },
+    ],
   });
-
+  const algo = ["algo", "algo", "algo"];
   //API CALL
 
   const getLogin = async () => {
@@ -51,6 +52,8 @@ const ContextProvider = ({ children }) => {
         auth,
         setAuth,
         getLogin,
+        selectedGameOnSideBar,
+        setselectedGameOnSideBar,
         temporaryUser,
       }}
     >

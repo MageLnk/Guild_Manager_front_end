@@ -34,7 +34,6 @@ const App = () => {
     localStorage.setItem("authenticate", auth);
   }, [auth]);
 
-  console.log(temporaryUser);
   return (
     <Routes>
       {/* Si no estoy Authenticado, la única ruta disponible es /login */}

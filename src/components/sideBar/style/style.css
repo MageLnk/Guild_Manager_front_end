@@ -3,9 +3,17 @@
   flex-direction: column;
   align-items: flex-start;
   padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 .side-bar .hyper-link-decoration {
   color: inherit;
   text-decoration: inherit;
+}
+
+.game-list-container {
+  padding-right: 1rem;
+}
+.game-list {
+  width: 100%;
 }
