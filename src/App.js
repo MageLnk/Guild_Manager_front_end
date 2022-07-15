@@ -5,15 +5,15 @@ import ContextApi from "./Context/ContextApi";
 
 // Components
 import Home from "./Views/home";
-import Argos from "./Views/argos";
+import Argos from "./Views/lostArk/argos";
 import Login from "./Views/login";
-import Vykas from "./Views/vykas";
-import Valtan from "./Views/valtan";
+import Vykas from "./Views/lostArk/vykas";
+import Valtan from "./Views/lostArk/valtan";
 import Members from "./Views/members";
 import Profile from "./Views/profile";
-import Brelshaza from "./Views/brelshaza";
+import Brelshaza from "./Views/lostArk/brelshaza";
 import Managment from "./Views/managment";
-import KakulSaydon from "./Views/kakulSaydon";
+import KakulSaydon from "./Views/lostArk/kakulSaydon";
 import Contribution from "./Views/contribution";
 
 import FourOFour from "./Views/404";
@@ -22,18 +22,21 @@ import FourOFour from "./Views/404";
 const App = () => {
   const { auth, setAuth } = useContext(ContextApi);
 
-  // Auth login
+  // Auth login. Cuando carga la aplicación, esta extrae el authenticate del localstorage que será "true" o "false"
+  // Compara, "true" con su booleano. La comparación responderá el booleano como la única opción disponible
+  // Seteando la authenticación a true o false. (Continúa más abajo)
   useEffect(() => {
     const isLogginOk = localStorage.getItem("authenticate");
     isLogginOk && JSON.parse(isLogginOk) ? setAuth(true) : setAuth(false);
   }, []);
-
+  // Acto seguido. Como el "auth" cambia a true o false, este setea el localstorage para el futuro
   useEffect(() => {
     localStorage.setItem("authenticate", auth);
   }, [auth]);
 
   return (
     <Routes>
+      {/* Si yo no estoy Authenticado, la única ruta disponible es /login */}
       {!auth && (
         <Route
           path="/login"
@@ -46,6 +49,7 @@ const App = () => {
           }
         />
       )}
+      {/* Si yo estoy Authenticado, tengo acceso a todas las rutas */}
       {auth && (
         <>
           <Route path="/" element={<Home />} />
@@ -60,29 +64,10 @@ const App = () => {
           <Route path="/contribution" element={<Contribution />} />
         </>
       )}
+      {/* Si intento entrar al login estando logeado, redirecciona al home. No existe 404 */}
       <Route path="*" element={<Navigate to={auth ? "/" : "/login"} />} />
     </Routes>
   );
 };
 
 export default App;
-
-/*
-//
-import ContextApi from "./Context/ContextApi/Provider";
-import Routes from "./Routes";
-//
-
-//
-
-const App = () => {
-  return (
-    <ContextApi>
-      <Routes />
-    </ContextApi>
-  );
-};
-
-export default App;
-
-*/
