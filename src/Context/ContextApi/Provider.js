@@ -9,6 +9,19 @@ const ContextProvider = ({ children }) => {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Temporal
+  const [temporaryUser, settemporaryUser] = useState({
+    userName: "MageLink",
+    password: "1234",
+    games: {
+      aion: false,
+      blackDesert: true,
+      finalFantasyXIV: false,
+      lostArk: true,
+      worldOfWarcraft: true,
+    },
+  });
+
   //API CALL
 
   const getLogin = async () => {
@@ -38,6 +51,7 @@ const ContextProvider = ({ children }) => {
         auth,
         setAuth,
         getLogin,
+        temporaryUser,
       }}
     >
       {children}

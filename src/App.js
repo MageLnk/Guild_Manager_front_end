@@ -20,7 +20,7 @@ import FourOFour from "./Views/404";
 
 // App
 const App = () => {
-  const { auth, setAuth } = useContext(ContextApi);
+  const { auth, setAuth, temporaryUser } = useContext(ContextApi);
 
   // Auth login. Cuando carga la aplicación, esta extrae el authenticate del localstorage que será "true" o "false"
   // Compara, "true" con su booleano. La comparación responderá el booleano como la única opción disponible
@@ -34,9 +34,10 @@ const App = () => {
     localStorage.setItem("authenticate", auth);
   }, [auth]);
 
+  console.log(temporaryUser);
   return (
     <Routes>
-      {/* Si yo no estoy Authenticado, la única ruta disponible es /login */}
+      {/* Si no estoy Authenticado, la única ruta disponible es /login */}
       {!auth && (
         <Route
           path="/login"
@@ -49,19 +50,10 @@ const App = () => {
           }
         />
       )}
-      {/* Si yo estoy Authenticado, tengo acceso a todas las rutas */}
+      {/* Si ya estoy Authenticado, tengo acceso a todas las rutas */}
       {auth && (
         <>
           <Route path="/" element={<Home />} />
-          <Route path="/argos" element={<Argos />} />
-          <Route path="/vykas" element={<Vykas />} />
-          <Route path="/valtan" element={<Valtan />} />
-          <Route path="/members" element={<Members />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/brelshaza" element={<Brelshaza />} />
-          <Route path="/managment" element={<Managment />} />
-          <Route path="/kakul-saydon" element={<KakulSaydon />} />
-          <Route path="/contribution" element={<Contribution />} />
         </>
       )}
       {/* Si intento entrar al login estando logeado, redirecciona al home. No existe 404 */}
@@ -71,3 +63,16 @@ const App = () => {
 };
 
 export default App;
+
+/*
+  <Route path="/argos" element={<Argos />} />
+          <Route path="/vykas" element={<Vykas />} />
+          <Route path="/valtan" element={<Valtan />} />
+          <Route path="/members" element={<Members />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/brelshaza" element={<Brelshaza />} />
+          <Route path="/managment" element={<Managment />} />
+          <Route path="/kakul-saydon" element={<KakulSaydon />} />
+          <Route path="/contribution" element={<Contribution />} />
+
+*/

@@ -2,8 +2,8 @@ const MainContent = () => {
   return (
     <div className="main-content">
       <p>
-        Acá va a ir la información esencial de la guild, como el resumen de
-        cantidad de miembros, el gráfico de las clases y todo eso
+        Acá irá la información esencial de tu cuenta. Los juegos a los que estás afiliados, los
+        nombres de tus personajes, etc, etc.
       </p>
     </div>
   );

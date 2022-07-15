@@ -11,23 +11,19 @@ import MainContent from "./mainContent";
 //
 
 const Home = () => {
-  const { login } = useContext(ContextApi);
   //console.log("Checkin algo", login);
-  if (login === false) {
-    return <Login />;
-  } else {
-    return (
-      <div className="container">
-        <Header />
 
-        <SideBar />
+  return (
+    <div className="container">
+      <Header />
 
-        <MainContent />
+      <SideBar />
 
-        <Footer />
-      </div>
-    );
-  }
+      <MainContent />
+
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
