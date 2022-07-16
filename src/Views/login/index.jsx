@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//
-//import ContextApi from "../../Context/ContextApi";
-//
-
-//
+// Style
 import "./style/style.css";
-
+// App
 const Login = ({ authenticate }) => {
   // Variables login
   const [user, setUser] = useState("");
@@ -15,12 +11,12 @@ const Login = ({ authenticate }) => {
   const navigate = useNavigate();
   const handlerLogin = () => {
     authenticate();
-    navigate("");
+    navigate("/");
   };
   return (
     <div className="container-login">
       <div>
-        <p>Para poder ingresar, necesta estar logeado</p>
+        <p>Para poder ingresar, necesita estar logeado</p>
       </div>
       <form className="form-login" typeof="submit">
         <input
@@ -56,6 +52,3 @@ const Login = ({ authenticate }) => {
 };
 
 export default Login;
-
-/*
- */

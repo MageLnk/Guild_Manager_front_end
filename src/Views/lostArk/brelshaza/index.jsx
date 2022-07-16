@@ -1,16 +1,11 @@
-import { useContext } from "react";
-//
-import ContextApi from "../../../Context/ContextApi";
-//
+// Components
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import SideBar from "../../../components/sideBar";
-//
+// Style
 import "./style/style.css";
-
+// App
 const Brelshaza = () => {
-  //  const { trueOrFalse } = useContext(ContextApi);
-  //  console.log(trueOrFalse);
   return (
     <div className="container">
       <Header />

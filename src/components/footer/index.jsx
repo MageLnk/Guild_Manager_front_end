@@ -1,5 +1,6 @@
+// Style
 import "./style/style.css";
-//
+// App
 const Footer = () => {
   return (
     <div className="footer">

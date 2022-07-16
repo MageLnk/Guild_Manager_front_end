@@ -1,23 +1,17 @@
-import { useContext } from "react";
-//
-import ContextApi from "../../Context/ContextApi";
-//
+// Components
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-//
+// Style
 import "./style/style.css";
-
+// App
 const Profile = () => {
-  //  const { trueOrFalse } = useContext(ContextApi);
-  //  console.log(trueOrFalse);
   return (
     <div className="container-profile">
       <Header />
 
       <div className="argos">
         <p>
-          Acá es donde vas a configurar tu cuenta, como tu personaje principal y
-          tu{`(s)`} alters.
+          Acá es donde vas a configurar tu cuenta, como tu personaje principal y tu{`(s)`} alters.
         </p>
       </div>
 

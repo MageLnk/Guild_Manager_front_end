@@ -1,9 +1,4 @@
-import { useContext } from "react";
-
-//
-import ContextApi from "../../Context/ContextApi";
-//
-import Login from "../login";
+// Componentes
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import SideBar from "../../components/sideBar";

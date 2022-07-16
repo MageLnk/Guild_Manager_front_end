@@ -1,15 +1,10 @@
-import { useContext } from "react";
-//
-import ContextApi from "../../Context/ContextApi";
-//
+// Components
 import Header from "../../components/header";
 import Footer from "../../components/footer";
-//
+// Style
 import "./style/style.css";
-
+// App
 const FourOFour = () => {
-  //const { trueOrFalse } = useContext(ContextApi);
-  //console.log(trueOrFalse);
   return (
     <div className="container-profile">
       <Header />

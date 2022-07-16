@@ -1,10 +1,17 @@
 import { useEffect } from "react";
-
+// App
 const SelectedGame = ({ temporaryUser, selectedGameOnSideBar, setselectedGameOnSideBar }) => {
   useEffect(() => {
     const isSelectedGameOnSideBar = localStorage.getItem("selectedGameOnSideBar");
-    setselectedGameOnSideBar(isSelectedGameOnSideBar);
+    console.log(isSelectedGameOnSideBar);
+    if (isSelectedGameOnSideBar !== null || isSelectedGameOnSideBar !== "initialState") {
+      setselectedGameOnSideBar(isSelectedGameOnSideBar);
+    }
   }, []);
+  // La lógica acá es es que useEffect hace un checkeo en la localstorage para ver si existe el item
+  // "selectedGameOnSideBar". Si existe, lo setea y lo aplica en el "selected" de options de abajo.
+  // En caso que no haya nada, no haya un match de "value", simplemente queda el "initialState", que es
+  // la primera opción.
   return (
     <select
       onChange={(e) => {

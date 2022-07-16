@@ -1,16 +1,11 @@
-import { useContext } from "react";
-//
-import ContextApi from "../../Context/ContextApi";
-//
+// Components
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import SideBar from "../../components/sideBar";
-//
+// Style
 import "./style/style.css";
-
+// App
 const Contribution = () => {
-  //  const { trueOrFalse } = useContext(ContextApi);
-  //  console.log(trueOrFalse);
   return (
     <div className="container">
       <Header />
@@ -19,8 +14,8 @@ const Contribution = () => {
 
       <div className="contribution">
         <p>
-          Esta vista está hecha para poner escribir la contrubición de cada uno
-          de los miembros. PODEEER
+          Esta vista está hecha para poner escribir la contrubición de cada uno de los miembros.
+          PODEEER
         </p>
       </div>
 

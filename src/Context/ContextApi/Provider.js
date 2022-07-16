@@ -10,7 +10,7 @@ const ContextProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedGameOnSideBar, setselectedGameOnSideBar] = useState("initialState");
 
-  // Temporal
+  // Temporal user. Después este usuario vendrá por Backend
   const [temporaryUser, settemporaryUser] = useState({
     userName: "MageLink",
     password: "1234",
@@ -22,9 +22,8 @@ const ContextProvider = ({ children }) => {
       { name: "World of Warcraft", status: true },
     ],
   });
-  const algo = ["algo", "algo", "algo"];
-  //API CALL
 
+  //API CALL
   const getLogin = async () => {
     try {
       setHasError(false);
@@ -43,7 +42,6 @@ const ContextProvider = ({ children }) => {
       //console.log("Lo dejé por estructura, ya veré si lo dejo o no");
     }
   };
-
   //END API CALL
 
   return (

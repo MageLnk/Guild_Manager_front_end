@@ -17,12 +17,16 @@ const SideBar = () => {
           temporaryUser={temporaryUser}
         />
       </div>
-
-      <p>
-        <Link className="hyper-link-decoration" to={`/`}>
-          Inicio
-        </Link>
-      </p>
+      <div className="permanents-options">
+        <span>
+          <Link className="hyper-link-decoration" to={`/`}>
+            Inicio
+          </Link>
+        </span>
+      </div>
+      <div className="reactive-options">
+        <span>Prueba</span>
+      </div>
     </div>
   );
 };
