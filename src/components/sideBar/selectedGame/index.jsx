@@ -3,7 +3,6 @@ import { useEffect } from "react";
 const SelectedGame = ({ temporaryUser, selectedGameOnSideBar, setselectedGameOnSideBar }) => {
   useEffect(() => {
     const isSelectedGameOnSideBar = localStorage.getItem("selectedGameOnSideBar");
-    console.log(isSelectedGameOnSideBar);
     if (isSelectedGameOnSideBar !== null || isSelectedGameOnSideBar !== "initialState") {
       setselectedGameOnSideBar(isSelectedGameOnSideBar);
     }
@@ -20,10 +19,17 @@ const SelectedGame = ({ temporaryUser, selectedGameOnSideBar, setselectedGameOnS
       }}
       className="game-list"
     >
-      <option value="initialState">Games</option>
+      <option
+        disabled={
+          selectedGameOnSideBar === "initialState" || selectedGameOnSideBar === null ? false : true
+        }
+        value="initialState"
+      >
+        Games
+      </option>
       {temporaryUser.games.map((target) => {
-        if (target.status === true) {
-          return (
+        return (
+          target.active === true && (
             <option
               selected={selectedGameOnSideBar === target.name ? true : false}
               key={target.name}
@@ -31,8 +37,8 @@ const SelectedGame = ({ temporaryUser, selectedGameOnSideBar, setselectedGameOnS
             >
               {target.name}
             </option>
-          );
-        }
+          )
+        );
       })}
     </select>
   );

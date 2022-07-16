@@ -11,15 +11,32 @@ const ContextProvider = ({ children }) => {
   const [selectedGameOnSideBar, setselectedGameOnSideBar] = useState("initialState");
 
   // Temporal user. Después este usuario vendrá por Backend
-  const [temporaryUser, settemporaryUser] = useState({
+  const [temporaryUser, setTemporaryUser] = useState({
     userName: "MageLink",
     password: "1234",
+    status: "user/admin",
     games: [
-      { name: "Aion", status: false },
-      { name: "Black Desert", status: true },
-      { name: "Final Fantasy XIV", status: false },
-      { name: "Lost Ark", status: true },
-      { name: "World of Warcraft", status: true },
+      { name: "Aion", active: false },
+      { name: "Black Desert", active: true },
+      { name: "Final Fantasy XIV", active: false },
+      { name: "Lost Ark", active: true },
+      { name: "World of Warcraft", active: true },
+    ],
+  });
+  // Temporal games. Después esto vendría por Backend
+  const [temporaryLostArkGame, setTemporaryLostArkGame] = useState({
+    userName: "Lost Ark",
+    active: true,
+    pages: [
+      "Argos",
+      "Vykas",
+      "Valtan",
+      "Members",
+      "Profile",
+      "Brelshaza",
+      "Managment",
+      "KakulSaydon",
+      "Contribution",
     ],
   });
 
@@ -53,6 +70,7 @@ const ContextProvider = ({ children }) => {
         selectedGameOnSideBar,
         setselectedGameOnSideBar,
         temporaryUser,
+        temporaryLostArkGame,
       }}
     >
       {children}

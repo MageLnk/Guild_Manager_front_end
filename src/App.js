@@ -3,10 +3,11 @@ import { Route, Routes, Navigate } from "react-router-dom";
 // Internal context
 import ContextApi from "./Context/ContextApi";
 
-// Components
+// General components
 import Home from "./Views/home";
-import Argos from "./Views/lostArk/argos";
 import Login from "./Views/login";
+// Lost Ark components
+import Argos from "./Views/lostArk/argos";
 import Vykas from "./Views/lostArk/vykas";
 import Valtan from "./Views/lostArk/valtan";
 import Members from "./Views/members";
@@ -15,12 +16,11 @@ import Brelshaza from "./Views/lostArk/brelshaza";
 import Managment from "./Views/managment";
 import KakulSaydon from "./Views/lostArk/kakulSaydon";
 import Contribution from "./Views/contribution";
-
-import FourOFour from "./Views/404";
+//
 
 // App
 const App = () => {
-  const { auth, setAuth, temporaryUser } = useContext(ContextApi);
+  const { auth, setAuth } = useContext(ContextApi);
 
   // Auth login. Cuando carga la aplicación, esta extrae el authenticate del localstorage que será "true" o "false"
   // Compara, "true" con su booleano. La comparación responderá el booleano como la única opción disponible
@@ -53,6 +53,16 @@ const App = () => {
       {auth && (
         <>
           <Route path="/" element={<Home />} />
+          {/* Los Ark Section */}
+          <Route path="/argos" element={<Argos />} />
+          <Route path="/vykas" element={<Vykas />} />
+          <Route path="/valtan" element={<Valtan />} />
+          <Route path="/members" element={<Members />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/brelshaza" element={<Brelshaza />} />
+          <Route path="/managment" element={<Managment />} />
+          <Route path="/kakul-saydon" element={<KakulSaydon />} />
+          <Route path="/contribution" element={<Contribution />} />
         </>
       )}
       {/* Si intento entrar al login estando logeado, redirecciona al home. No existe 404 */}
@@ -64,14 +74,6 @@ const App = () => {
 export default App;
 
 /*
-  <Route path="/argos" element={<Argos />} />
-          <Route path="/vykas" element={<Vykas />} />
-          <Route path="/valtan" element={<Valtan />} />
-          <Route path="/members" element={<Members />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/brelshaza" element={<Brelshaza />} />
-          <Route path="/managment" element={<Managment />} />
-          <Route path="/kakul-saydon" element={<KakulSaydon />} />
-          <Route path="/contribution" element={<Contribution />} />
+  
 
 */
