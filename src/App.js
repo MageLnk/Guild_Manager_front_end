@@ -2,7 +2,6 @@ import { useContext, useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 // Internal context
 import ContextApi from "./Context/ContextApi";
-
 // General components
 import Home from "./Views/home";
 import Login from "./Views/login";

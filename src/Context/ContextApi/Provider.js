@@ -24,21 +24,27 @@ const ContextProvider = ({ children }) => {
     ],
   });
   // Temporal games. Después esto vendría por Backend
-  const [temporaryLostArkGame, setTemporaryLostArkGame] = useState({
-    userName: "Lost Ark",
-    active: true,
-    pages: [
-      "Argos",
-      "Vykas",
-      "Valtan",
-      "Members",
-      "Profile",
-      "Brelshaza",
-      "Managment",
-      "KakulSaydon",
-      "Contribution",
-    ],
-  });
+  const [temporaryGamePages, setTemporaryGamePages] = useState([
+    {
+      gameName: "Lost Ark",
+      active: true,
+      pages: [
+        "Argos",
+        "Vykas",
+        "Valtan",
+        "Members",
+        "Brelshaza",
+        "Managment",
+        "Kakul-Saydon",
+        "Contribution",
+      ],
+    },
+    {
+      gameName: "World of Warcraft",
+      active: true,
+      pages: ["Profile"],
+    },
+  ]);
 
   //API CALL
   const getLogin = async () => {
@@ -70,7 +76,7 @@ const ContextProvider = ({ children }) => {
         selectedGameOnSideBar,
         setselectedGameOnSideBar,
         temporaryUser,
-        temporaryLostArkGame,
+        temporaryGamePages,
       }}
     >
       {children}

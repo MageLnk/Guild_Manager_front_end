@@ -8,8 +8,26 @@ import DeployOptionsByGame from "./deployOptionsByGame";
 import "./style/style.css";
 // App
 const SideBar = () => {
-  const { temporaryUser, selectedGameOnSideBar, setselectedGameOnSideBar, temporaryLostArkGame } =
+  const { temporaryUser, selectedGameOnSideBar, setselectedGameOnSideBar, temporaryGamePages } =
     useContext(ContextApi);
+
+  // Esta función tiene el propósito de, dependiendo de la elección del juego en el sideBar
+  // traer las vistas/pages del juego y enviarle el array de esas vistas al DeployOptionByGame
+  // para que se vean en el sidebar.
+  const searchPagesFromSelectedGame = () => {
+    let pages = undefined;
+    for (let i = 0; i < temporaryGamePages.length; i++) {
+      if (selectedGameOnSideBar === temporaryGamePages[i].gameName) {
+        pages = temporaryGamePages[i];
+        break;
+      }
+      if (selectedGameOnSideBar !== temporaryGamePages[i].gameName) {
+        pages = { pages: [""] };
+      }
+    }
+    return pages;
+  };
+
   return (
     <div className="side-bar">
       <div className="game-list-container">
@@ -27,11 +45,8 @@ const SideBar = () => {
         </span>
       </div>
       <div className="reactive-options">
-        <DeployOptionsByGame temporaryLostArkGame={temporaryLostArkGame} />
+        <DeployOptionsByGame gamePages={searchPagesFromSelectedGame()} />
       </div>
-      <Link to={`/argos`}>
-        <p>Ola</p>
-      </Link>
     </div>
   );
 };

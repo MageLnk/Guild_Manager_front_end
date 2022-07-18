@@ -1,11 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const DeployOptionsByGame = ({ temporaryLostArkGame }) => {
-  console.log("A ver", temporaryLostArkGame);
+const DeployOptionsByGame = ({ gamePages }) => {
   return (
-    <div>
-      <p> Ola k ase </p>
-    </div>
+    <>
+      {gamePages.pages.map((target) => {
+        return (
+          <Link key={target} className="hyper-link-decoration" to={`${target.toLowerCase()}`}>
+            <p>{target}</p>
+          </Link>
+        );
+      })}
+    </>
   );
 };
 
