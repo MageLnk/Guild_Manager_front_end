@@ -1,7 +1,0 @@
-1.- Create a user in the back-end server to do more "realistic" log-in.
-    1.1.- Error detectador en el front. Logea sea cual sea la respuesta. Descubrir el error.
-2.- Do the logic of the Login. The idea is the validation is in the point of you log in in the server.
-3.- Fix login crush in case server is down. (First idea, do through
-the CSS. And Error msg in the top of the log-in inputs)
-4.- If fetch fail, also crush the application. Fix that
-5.- Make beauty log-in web-site. Then upgrate the headbard.

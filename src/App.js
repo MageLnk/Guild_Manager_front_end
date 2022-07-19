@@ -19,7 +19,7 @@ import Contribution from "./Views/contribution";
 
 // App
 const App = () => {
-  const { auth, setAuth } = useContext(ContextApi);
+  const { auth, setAuth, handleLogin } = useContext(ContextApi);
 
   // Auth login. Cuando carga la aplicación, esta extrae el authenticate del localstorage que será "true" o "false"
   // Compara, "true" con su booleano. La comparación responderá el booleano como la única opción disponible
@@ -36,18 +36,7 @@ const App = () => {
   return (
     <Routes>
       {/* Si no estoy Authenticado, la única ruta disponible es /login */}
-      {!auth && (
-        <Route
-          path="/login"
-          element={
-            <Login
-              authenticate={() => {
-                setAuth(true);
-              }}
-            />
-          }
-        />
-      )}
+      {!auth && <Route path="/login" element={<Login handleLogin={handleLogin} auth={auth} />} />}
       {/* Si ya estoy Authenticado, tengo acceso a todas las rutas */}
       {auth && (
         <>

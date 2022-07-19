@@ -3,16 +3,12 @@ import { useNavigate } from "react-router-dom";
 // Style
 import "./style/style.css";
 // App
-const Login = ({ authenticate }) => {
+const Login = ({ handleLogin, auth }) => {
   // Variables login
-  const [user, setUser] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   // Login logic
   const navigate = useNavigate();
-  const handlerLogin = () => {
-    authenticate();
-    navigate("/");
-  };
   return (
     <div className="container-login">
       <div>
@@ -21,10 +17,10 @@ const Login = ({ authenticate }) => {
       <form className="form-login" typeof="submit">
         <input
           type="text"
-          value={user}
+          value={userName}
           placeholder="Ingrese su usuario"
           onChange={(e) => {
-            setUser(e.target.value);
+            setUserName(e.target.value);
           }}
         />
         <input
@@ -39,7 +35,10 @@ const Login = ({ authenticate }) => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              handlerLogin();
+              handleLogin({ userName, password });
+              if (auth === true) {
+                navigate("/");
+              }
             }}
           >
             Enviar

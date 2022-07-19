@@ -46,18 +46,24 @@ const ContextProvider = ({ children }) => {
     },
   ]);
 
-  //API CALL
-  const getLogin = async () => {
+  //API CALL FOR LOGIN
+  const handleLogin = async (userInfo) => {
     try {
       setHasError(false);
       setErrorMessage("");
       const successLogin = await apiCall({
-        url: `http://localhost:5000/admin/login`,
+        url: `http://localhost:5000/general/user`,
+        method: "post",
+        body: JSON.stringify(userInfo),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      //console.log(successLogin.loggedIn);
-      setAuth(successLogin.loggedIn);
-      //Por qué cuando pasa a ser un objeto, valida igual el login?
+      console.log("Viendo el succesLogin", successLogin);
+      //setAuth(successLogin.loggedIn);
+      // ¿Por qué si salió bien, no entra acá?
     } catch (error) {
+      console.log("Error dentro de catch", error);
       setAuth(false);
       setHasError(true);
       setErrorMessage("Algo a pasado");
@@ -72,7 +78,7 @@ const ContextProvider = ({ children }) => {
       value={{
         auth,
         setAuth,
-        getLogin,
+        handleLogin,
         selectedGameOnSideBar,
         setselectedGameOnSideBar,
         temporaryUser,
