@@ -41,8 +41,8 @@ const App = () => {
           path="/login"
           element={
             <Login
-              handleLogin={handleLogin}
               auth={auth}
+              handleLogin={handleLogin}
               errorMessage={errorMessage}
               loginLoadingStatus={loginLoadingStatus}
             />

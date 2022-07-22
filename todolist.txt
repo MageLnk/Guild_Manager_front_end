@@ -1,0 +1,5 @@
+1.- El login ya funciona, pero ahora hay que hacer que haga la lógica de "refrezcar" la página una vez ya esté 
+logeado. Para ello, hay que ver como hacer la lógica de la validación del último login. Si el último login está
+OK, entonces, volver hacer un fetch para traer los juegos para el sideBar
+2.- Cada videojuego tiene sus opciones de VISTAS dentro de la página y sus opciones también. Dependiendo del juego
+seleccionado, hacer un fetch para traer las vistas.

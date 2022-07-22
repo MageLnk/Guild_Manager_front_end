@@ -60,6 +60,7 @@ const Login = ({ handleLogin, auth, errorMessage, loginLoadingStatus }) => {
               setloadingProgress("Loading...");
               if (auth === true) {
                 navigate("/");
+                setloadingProgress("");
               }
             }}
           >

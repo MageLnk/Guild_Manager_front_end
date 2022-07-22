@@ -5,7 +5,6 @@ const apiCall = async ({ url, method = "get", body, headers }) => {
     return data;
   } catch (error) {
     Promise.reject(error);
-    //console.log("Error dentro de la función apiCall", error);
   }
 };
 

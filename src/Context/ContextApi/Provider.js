@@ -68,7 +68,7 @@ const ContextProvider = ({ children }) => {
         setErrorMessage(successLogin.msg);
         setAuth(false);
       }
-      // ¿Por qué si salió bien, entra acá?
+      // ¿Por qué si salió bien, entra acá? No debería entrar abajo?
     } catch (error) {
       console.log("Error dentro de catch", error);
       setAuth(false);
