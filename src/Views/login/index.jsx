@@ -3,24 +3,33 @@ import { useNavigate } from "react-router-dom";
 // Style
 import "./style/style.css";
 // App
-const Login = ({ handleLogin, auth, loginStatus, setLoginStatus }) => {
+const Login = ({ handleLogin, auth, errorMessage, loginLoadingStatus }) => {
   // Variables login
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [loadingProgress, setloadingProgress] = useState("");
   // Login logic
   const navigate = useNavigate();
-  const loginInternalStatus = () => {
-    if (loginStatus === "Loading...") {
+  const loginProgress = () => {
+    if (loginLoadingStatus === true) {
       return "status-log-in-loading";
     }
-    if (auth === false) {
+    if (auth === false && loginLoadingStatus === false) {
       return "status-log-in-error";
     }
     return "status-log-in";
   };
+  const loginResponse = () => {
+    if (loginLoadingStatus) {
+      return loadingProgress;
+    }
+    if (loginLoadingStatus === false && auth === false) {
+      return errorMessage;
+    }
+  };
   useEffect(() => {
-    loginInternalStatus();
-  }, [loginStatus]);
+    loginProgress();
+  }, [loginLoadingStatus]);
   return (
     <div className="container-login">
       <div>
@@ -48,7 +57,7 @@ const Login = ({ handleLogin, auth, loginStatus, setLoginStatus }) => {
             onClick={(e) => {
               e.preventDefault();
               handleLogin({ userName, password });
-              setLoginStatus("Loading...");
+              setloadingProgress("Loading...");
               if (auth === true) {
                 navigate("/");
               }
@@ -58,8 +67,8 @@ const Login = ({ handleLogin, auth, loginStatus, setLoginStatus }) => {
           </button>
           <button>Registrar</button>
         </div>
-        <div className={loginInternalStatus()}>
-          <p>{!loginStatus ? `    ` : loginStatus}</p>
+        <div className={loginProgress()}>
+          <p>{loginResponse()}</p>
         </div>
       </form>
     </div>

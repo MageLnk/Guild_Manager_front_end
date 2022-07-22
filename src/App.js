@@ -19,7 +19,7 @@ import Contribution from "./Views/contribution";
 
 // App
 const App = () => {
-  const { auth, setAuth, handleLogin, loginStatus, setLoginStatus } = useContext(ContextApi);
+  const { auth, setAuth, handleLogin, errorMessage, loginLoadingStatus } = useContext(ContextApi);
 
   // Auth login. Cuando carga la aplicación, esta extrae el authenticate del localstorage que será "true" o "false"
   // Compara, "true" con su booleano. La comparación responderá el booleano como la única opción disponible
@@ -43,8 +43,8 @@ const App = () => {
             <Login
               handleLogin={handleLogin}
               auth={auth}
-              loginStatus={loginStatus}
-              setLoginStatus={setLoginStatus}
+              errorMessage={errorMessage}
+              loginLoadingStatus={loginLoadingStatus}
             />
           }
         />
