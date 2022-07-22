@@ -14,3 +14,22 @@
   width: 100%;
   align-items: center;
 }
+
+.status-log-in {
+  margin: 1.5rem;
+  padding: 0rem 4rem 0rem 4rem;
+}
+
+.status-log-in-loading {
+  margin: 1.5rem;
+  padding: 0rem 4rem 0rem 4rem;
+  border: 1px solid yellow;
+  border-radius: 50px;
+}
+
+.status-log-in-error {
+  margin: 1.5rem;
+  padding: 0rem 4rem 0rem 4rem;
+  border: 1px solid red;
+  border-radius: 50px;
+}

@@ -7,7 +7,8 @@ import apiCall from "../../Api";
 const ContextProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
   const [hasError, setHasError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  //const [errorMessage, setErrorMessage] = useState("");
+  const [loginStatus, setLoginStatus] = useState("");
   const [selectedGameOnSideBar, setselectedGameOnSideBar] = useState("initialState");
 
   // Temporal user. Después este usuario vendrá por Backend
@@ -49,8 +50,6 @@ const ContextProvider = ({ children }) => {
   //API CALL FOR LOGIN
   const handleLogin = async (userInfo) => {
     try {
-      setHasError(false);
-      setErrorMessage("");
       const successLogin = await apiCall({
         url: `http://localhost:5000/general/user`,
         method: "post",
@@ -60,13 +59,27 @@ const ContextProvider = ({ children }) => {
         },
       });
       console.log("Viendo el succesLogin", successLogin);
+      console.log("Viendo el loginStatus", successLogin.loginStatus);
+      if (successLogin.loginStatus) {
+        setHasError(false);
+        //setErrorMessage("");
+        setAuth(true);
+        console.log("Entré");
+      }
+      if (!successLogin.loginStatus) {
+        setHasError(true);
+        //setErrorMessage(successLogin.msg);
+        setAuth(false);
+        setLoginStatus(successLogin.msg);
+        console.log("No entré, error por no match con el backend");
+      }
       //setAuth(successLogin.loggedIn);
-      // ¿Por qué si salió bien, no entra acá?
+      // ¿Por qué si salió bien, entra acá?
     } catch (error) {
       console.log("Error dentro de catch", error);
       setAuth(false);
       setHasError(true);
-      setErrorMessage("Algo a pasado");
+      //setErrorMessage("Algo a pasado");
     } finally {
       //console.log("Lo dejé por estructura, ya veré si lo dejo o no");
     }
@@ -79,6 +92,8 @@ const ContextProvider = ({ children }) => {
         auth,
         setAuth,
         handleLogin,
+        loginStatus,
+        setLoginStatus,
         selectedGameOnSideBar,
         setselectedGameOnSideBar,
         temporaryUser,
