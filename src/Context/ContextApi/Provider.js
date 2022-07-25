@@ -10,6 +10,7 @@ const ContextProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [loginLoadingStatus, setLoginLoadingStatus] = useState("");
   const [selectedGameOnSideBar, setselectedGameOnSideBar] = useState("initialState");
+  const [userData, setUserData] = useState("");
 
   // Temporal user. Después este usuario vendrá por Backend
   const [temporaryUser, setTemporaryUser] = useState({
@@ -62,6 +63,7 @@ const ContextProvider = ({ children }) => {
       if (successLogin.loginStatus) {
         setLoginLoadingStatus(false);
         setAuth(true);
+        localStorage.setItem("idUser", successLogin.userId);
       }
       if (!successLogin.loginStatus) {
         setLoginLoadingStatus(false);

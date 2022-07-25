@@ -26,13 +26,22 @@ const App = () => {
   // Seteando la authenticación a true o false. (Continúa más abajo)
   useEffect(() => {
     const isLogginOk = localStorage.getItem("authenticate");
-    isLogginOk && JSON.parse(isLogginOk) ? setAuth(true) : setAuth(false);
+    const isIdUser = localStorage.getItem("idUser");
+    //isLogginOk && JSON.parse(isLogginOk) ? setAuth(true) : setAuth(false);
+    if (isLogginOk && JSON.parse(isLogginOk)) {
+      setAuth(true);
+    } else {
+      setAuth(false);
+    }
+    if (isIdUser === null) {
+      setAuth(false);
+      localStorage.clear();
+    }
   }, []);
   // Acto seguido. Como el "auth" cambia a true o false, este setea el localstorage para el futuro
   useEffect(() => {
     localStorage.setItem("authenticate", auth);
   }, [auth]);
-
   return (
     <Routes>
       {/* Si no estoy Authenticado, la única ruta disponible es /login */}
